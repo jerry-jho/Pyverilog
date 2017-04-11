@@ -19,7 +19,7 @@ class VerilogPreprocessor(object):
     def __init__(self, filelist, outputfile='pp.out', include=None, define=None):
         self.filelist = filelist
         cmd = []
-        cmd.append('iverilog ')
+        cmd.append(os.environ.get('IVERILOG','iverilog') +' ')
         if include:
             for inc in include:
                 cmd.append('-I ')
